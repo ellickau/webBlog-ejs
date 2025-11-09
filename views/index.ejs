@@ -1,0 +1,63 @@
+<%- include('partials/header.ejs') %>
+
+    <section class="form-container">
+        <h1>
+            <% if (editingPost) { %>
+                ✏️ Editing Post
+            <% } else { %>  
+                📝 Welcome to Web Blog
+        <% } %>
+        </h1>
+
+        <form class="form-blog" action="<%= editingPost ? '/edit' : '/blog' %>" method="POST">
+        
+            <% if (editingPost) { %>
+                <input type="hidden" name="id" value="<%= editingPost.id %>">
+                <% } %>
+        
+                    <label for="blog-title">Title</label>
+                    <input type="text" id="blog-title" class="blog-title" name="title" placeholder="Title"
+                        value="<%= editingPost ? editingPost.title : '' %>" required>
+        
+                    <label for="blog-content">Content</label>
+                    <textarea id="blog-content" class="blog-content" rows="5" name="content" placeholder="Enter Blog here"
+                        required><%= editingPost ? editingPost.content : '' %></textarea>
+        
+                    <div class="btn-container">
+                        <button type="submit" class="btn-submit">
+                            <%= editingPost ? 'Save Changes' : 'Add Post' %>
+                        </button>
+        
+                        <% if (editingPost) { %>
+                            <button type="button" class="btn-cancel" onclick="window.location.href='/'">Cancel</button>
+                            <% } %>
+                    </div>
+        </form>
+    </section>
+
+    <hr>
+
+    <h2>My Blogs:</h2>
+
+    <div class="blog-container"> 
+        <!-- cannot apply locals.posts since posts = [] not undefefined. -->
+        <% if (posts && posts.length > 0) { %> 
+
+        <% posts.slice().reverse().forEach(post => { %>
+            
+            <p class="post-title"><strong><%= post.title %></strong></p>
+            <p class="post-date"><%= post.date %></p>
+            <p class="post-content"><%= post.content %></p>
+            <div class="post-link">
+                <a href="/edit?postid=<%=post.id%>"><span>edit</span></a>
+                <a href="/delete?postid=<%=post.id%>"><span>delete</span></a>
+            </div>
+            <br>
+        <% }); %>
+        <% } else { %>
+        <h3> No Blog Post yet! </h3>
+        <% } %>  
+
+    </div>
+
+<%-include('partials/footer.ejs') %>
