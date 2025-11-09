@@ -1,5 +1,5 @@
 <h1> WebBlog System by EJS and Express</h1>
-<h2> Captstone Project - 9 Nov 2025 </h2>
+<h2> Capstone Project - 9 Nov 2025 </h2>
 <hr>
 <p> instruction </p>
 <ul>
