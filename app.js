@@ -2,7 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 
 const app = express();
-const port = 3000;
+const port = process.env.port || 3000;
 
 app.use(express.static('public'));
 app.set("view engin", "ejs");
@@ -68,3 +68,4 @@ app.get('/delete', (req, res) => {
 app.listen(port, ()=> {
     console.log(`Server lsitening on port ${port}`);
 });
+
