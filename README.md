@@ -1,6 +1,6 @@
 <h1> WebBlog System by EJS and Express</h1>
 <h2> Capstone Project - 9 Nov 2025 </h2>
-<h2>Try this 👉 <a href="https://webblog-ejs.onrender.com/"> </a></h2>
+<h2>Try this 👉 <a href="https://webblog-ejs.onrender.com/"> http://weblog-esj.onrender.com </a></h2>
 <hr>
 <p> instruction </p>
 <ul>
